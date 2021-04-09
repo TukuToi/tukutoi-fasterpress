@@ -82,9 +82,14 @@ class Tkt_Fasterpress_Admin_Settings {
      * @access private
      */
     private function get_options(){
-
+		
         $options = get_option( $this->plugin_name );
-
+		
+		//The plugin might not yet have saved any options at all
+		if(!is_array($options)){
+			$options = array();
+		}
+		
         $defaults = array(
             $this->plugin_name .'_style_handles_to_remove'  => array(),
             $this->plugin_name .'_script_handles_to_remove' => array(),
@@ -99,7 +104,7 @@ class Tkt_Fasterpress_Admin_Settings {
             $this->plugin_name .'_fe_styles'                => array(),
             $this->plugin_name .'_fe_styles_reg'            => array(),
         );
-
+	
         foreach ($defaults as $option => $default) {
 
             if( !array_key_exists($option, $options) ){
