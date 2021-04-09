@@ -156,10 +156,13 @@ class Tkt_Fasterpress_Public {
 	 */
 	public function cleanup_scripts() {
 	
-		$scripts_to_remove = $this->options[$this->plugin_name .'_script_handles_to_remove'];
-	    
-		if ( !is_admin() ) {
+		$scripts_to_remove 	= $this->options[$this->plugin_name .'_script_handles_to_remove'];
+	    $exclude_archive 	= $this->options[$this->plugin_name .'_archives_to_exclude'];
+		$exclude_singular 	= explode(',', $this->options[$this->plugin_name .'_single_objects_to_exclude'] );
+		
+		if ( !is_admin() && !is_post_type_archive( $exclude_archive ) && !is_single( $exclude_singular ) && !is_page( $exclude_singular ) ) {
 		 	foreach( $scripts_to_remove as $script ) {
+				
 		 		/**
 				 *  How to succesfully dequeue scripts and styles in WP without calling wp_deregister_style
 		 		 * 	
@@ -205,8 +208,11 @@ class Tkt_Fasterpress_Public {
 	public function cleanup_styles() {
 
 		$styles_to_remove = $this->options[$this->plugin_name .'_style_handles_to_remove'];
-	    if ( !is_admin() ) {
-
+		$exclude_archive 	= $this->options[$this->plugin_name .'_archives_to_exclude'];
+		$exclude_singular 	= explode(',', $this->options[$this->plugin_name .'_single_objects_to_exclude'] );
+		
+		//WordPress REALLY is a fucking mess. You can not use is_singular as that is for a post type only. You cannot use is_single, as that is for everything unless pages, and so you need to use is_single AND is_page. I Mean, fucked very much guys???? Brain dead yes?
+	    if ( !is_admin() && !is_post_type_archive( $exclude_archive ) && !is_single( $exclude_singular ) && !is_page( $exclude_singular ) ) {
 	    	/**
 	    	 * And for CSS it seems enough to hook into wp_print_styles
 	    	 * Again here, the scripts loading a dependency must be disabled in order to dequeue the dependency!
