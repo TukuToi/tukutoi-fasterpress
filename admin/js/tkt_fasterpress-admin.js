@@ -17,7 +17,7 @@
 	 *
 	 * When the window is loaded:
 	 *
-	 * $( window ).load(function() {
+	 * $( window ).on('load', function() {
 	 *
 	 * });
 	 *
@@ -35,7 +35,7 @@
 	var $state;
 	var to_hide;
 
-	$(document).ready(function() {
+	$(document).on('ready', function() {
 	    $('.tkt-select2').select2({
 	    	width: 'resolve',
 	    	templateResult: formatSelect2Options,
@@ -78,6 +78,3 @@
 	}
 	
 })( jQuery );
-
-
-
