@@ -69,7 +69,12 @@ class Tkt_Fasterpress_Public {
 	private function get_options(){
 
         $options = get_option( $this->plugin_name );
-
+		
+		//The plugin might not yet have saved any options at all
+		if(!is_array($options)){
+			$options = array();
+		}
+		
         $defaults = array(
             $this->plugin_name .'_style_handles_to_remove' 	=> array(),
             $this->plugin_name .'_script_handles_to_remove' => array(),
