@@ -17,7 +17,7 @@
 	 *
 	 * When the window is loaded:
 	 *
-	 * $( window ).load(function() {
+	 * $( window ).on('load', function() {
 	 *
 	 * });
 	 *
@@ -38,7 +38,7 @@
 	 *If you want to hook up your events for certain elements before the window loads, 
 	 *then $(document).ready is the right place.
 	 */
-	$(document).ready(function() {
+	$(document).on('ready', function() {
 	    // document is loaded and DOM is ready
 	    //alert("Document is ready");
 	});
@@ -48,26 +48,27 @@
 	*Therefore functions which concern images or other page contents 
 	*should be placed in the load event for the window or the content tag itself.
 	*/
-	$(window).load(function() {
+	$(window).on('load', function() {
 	    // page is fully loaded, including all files, objects and images
 	    //alert("Window is loaded");
+		if(document.getElementById("tkt_fe_styles_scripts_modal") && document.getElementById("tkt_fe_styles_scripts_modal_close")){
+			
+			tkt_fe_styles_scripts_modal 		= document.getElementById("tkt_fe_styles_scripts_modal");
+			close_tkt_fe_styles_scripts_modal 	= document.getElementById("tkt_fe_styles_scripts_modal_close");
 
-	    tkt_fe_styles_scripts_modal 		= document.getElementById("tkt_fe_styles_scripts_modal");
-		close_tkt_fe_styles_scripts_modal 	= document.getElementById("tkt_fe_styles_scripts_modal_close");
+			close_tkt_fe_styles_scripts_modal.onclick = function() {
+				tkt_fe_styles_scripts_modal.style.display = "none";
+			}
 
-		close_tkt_fe_styles_scripts_modal.onclick = function() {
-		  	tkt_fe_styles_scripts_modal.style.display = "none";
+			// When the user clicks anywhere outside of the modal, close it
+			window.onclick = function(event) {
+			  if (event.target == tkt_fe_styles_scripts_modal) {
+				tkt_fe_styles_scripts_modal.style.display = "none";
+			  }
+			}
+			
 		}
-
-		// When the user clicks anywhere outside of the modal, close it
-		window.onclick = function(event) {
-		  if (event.target == tkt_fe_styles_scripts_modal) {
-		    tkt_fe_styles_scripts_modal.style.display = "none";
-		  }
-		}
-
 		
-
 	});
 
 })( jQuery );
