@@ -1,0 +1,119 @@
+.alert {
+    padding: 20px;
+    border-left: solid;
+    border-left-width: 4px;
+    border-left-color: #f44336;
+    color: #000;
+    margin-bottom: 15px;
+}
+.success {
+    border-left-color: #4caf50;
+}
+.tkt_page_reload_icon {
+    cursor: pointer;
+    font-size: 15px;
+}
+table {
+    border-spacing: 0;
+    width: 98%;
+    border: 1px solid #ddd;
+}
+.form-table th,
+td,
+th {
+    text-align: left;
+    padding: 16px;
+}
+tr:nth-child(even) {
+    background-color: #505d6326;
+}
+tr.repeats {
+    background-color: #ca2b2b29;
+}
+a.in-resolution-link {
+    color: #000;
+}
+a.in-resolution-link:hover {
+    color: #fff;
+}
+label[for="tkt_feedback_limit"] {
+    vertical-align: sub;
+}
+.tkt-option-input {
+    float: right;
+    min-width: 38%;
+    margin: auto;
+}
+.tkt-query-input {
+    min-width: 300px;
+}
+.tkt-limit-input {
+    max-width: 50px;
+}
+.update-nag {
+    display: flex;
+    padding: unset;
+    padding-left: 15px;
+}
+div.main-dashboard-inner {
+    padding: 15px;
+}
+span.select2-container{width:-webkit-fill-available !important;min-width: 38%;max-width: 500px;}
+small.tkt-x-small{font-size: 8px !important;}
+
+.tkt_modal {
+  align-items: center;
+  justify-content: center;
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100vw; /* Full width */
+  height: 100vh; /* Full height */
+  overflow: hidden; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.tkt_modal_header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background-color: #0269ac;
+  border-bottom: 1px solid #006bb1;
+  padding: 10px;
+  
+}
+/* Modal Content/Box */
+.tkt_modal_wrap {
+  background-color: #fefefe;
+  border: 1px solid #006bb1;
+  width: 53vw; /* Could be more or less, depending on screen size */
+  border-radius: 3px;
+}
+.tkt_modal_content {
+  height: 63vh;
+  overflow-x: scroll;
+  padding: 32px 36px 32px 36px;
+}
+.tkt_modal_content p{
+  font-size: 16px;
+  line-height: 25px;
+}
+
+/* The Close Button */
+.tkt_modal_close, .tkt_modal_title {
+  color: rgba(148,171,189,.62);
+  font-weight: bold;
+  margin-right: 16px;
+  font-size: 24px;
+}
+
+.tkt_modal_close:hover,
+.tkt_modal_close:focus {
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+}
