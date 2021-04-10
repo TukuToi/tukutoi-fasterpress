@@ -119,7 +119,9 @@ class Tkt_Fasterpress_Public {
 		 * between the defined hooks and the functions defined in this
 		 * class.
 		 */
-
+		if ( !current_user_can( 'administrator' ) || $this->options[$this->plugin_name .'_load_frontend_menu'] != 1 ) {
+	        return;
+	    }
 		wp_enqueue_style( $this->plugin_name .'-fe-styles', plugin_dir_url( __FILE__ ) . 'css/tkt_fasterpress-public.css', array(), $this->version, 'all' );
 
 	}
@@ -142,7 +144,9 @@ class Tkt_Fasterpress_Public {
 		 * between the defined hooks and the functions defined in this
 		 * class.
 		 */
-
+		if ( !current_user_can( 'administrator' ) || $this->options[$this->plugin_name .'_load_frontend_menu'] != 1 ) {
+	        return;
+	    }
 		wp_enqueue_script( $this->plugin_name .'-fe-scripts', plugin_dir_url( __FILE__ ) . 'js/tkt_fasterpress-public.js', array( 'jquery' ), $this->version, true );
 
 	}
