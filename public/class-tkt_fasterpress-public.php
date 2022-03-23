@@ -239,8 +239,11 @@ class Tkt_Fasterpress_Public {
 
 	public function disable_emojis() {
 
-		if($this->options[$this->plugin_name .'_remove_wp_emojis'] != 1)
+		if ( ! isset( $this->options[ $this->plugin_name .'_remove_wp_emojis' ] ) 
+		   || $this->options[ $this->plugin_name .'_remove_wp_emojis' ] != 1 
+		) {
 			return;
+		}
 
 		// Prevent Emoji from loading on the front-end
 		remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
